@@ -1,0 +1,122 @@
+.cuaca{
+    text-align: center;
+}
+.hist{
+    /* margin-left: 1000px;
+    padding-left: 30px;
+    padding-right: 30px; */
+    float: right;
+}
+.kota h2{
+    padding-left: 100px;
+}
+.status h2{
+    padding-left: 400px;
+}
+.temp h2{
+    padding-left: 400px;
+}
+
+a#menuPrakira{
+    text-decoration: none;
+}
+
+a#menuPrakira:hover{
+    color: black;
+}
+
+.containerDropdown form {
+    padding: 0px;
+    padding-left: 50px;
+    font-size: 20px;
+}
+
+select#dropdownHari{
+    background-color: #9EB998;
+    width: 130px;
+    height: 40px;
+    border: 0px;
+    color: white;
+    text-align: center;
+}
+
+select#dropdownHari option{
+    background-color: white;
+    color: black;
+}
+
+.container{
+    width: 100%;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 460px 65px;
+    grid-gap: 8px 60px;
+    padding: 0px 50px;
+}
+
+#formPredik{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    /* border: 2px solid black; */
+    background-color: #EDEDDD;
+    
+}
+
+form{
+    padding: 55px 40px 10px 40px;
+    margin: 0px;
+    
+}
+
+form td{
+    padding: 20px 20px 20px 8px;
+    font-size: 24px;
+}
+
+form td input{
+    width: 410px;
+}
+
+input#sumbitForm{
+    float: right;
+    width: 120px;
+    height: 40px;
+    margin-right: 30px;
+    margin-top: 30px;
+    font-size: 20px;
+    border: 0px;
+    background-color: #9EB998;
+    color: white;
+    border-radius: 17px;
+}
+
+#result{
+    grid-row-start: 2;
+    grid-row-end: 1;
+    /* border: 2px solid black; */
+    /* width: 500px; */
+    /* justify-self: center; */
+    background-color: #EDEDDD;
+    border-radius: 50px;
+}
+
+#result h1{
+    padding: 20px;
+    text-align: center;
+}
+
+a#btnHome{
+    grid-row-start: 2;
+    grid-row-end: 2;
+    background-color: #9EB998;
+    width: 120px;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 5px;
+    color: white;
+    font-size: 20px;
+    border-radius: 17px;
+    padding-top: 5px;
+    text-decoration: none;
+}
