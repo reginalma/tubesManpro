@@ -1,18 +1,22 @@
 .cuaca{
     text-align: center;
 }
+
 .hist{
     /* margin-left: 1000px;
     padding-left: 30px;
     padding-right: 30px; */
     float: right;
 }
+
 .kota h2{
     padding-left: 100px;
 }
+
 .status h2{
     padding-left: 400px;
 }
+
 .temp h2{
     padding-left: 400px;
 }
@@ -64,7 +68,7 @@ select#dropdownHari option{
 }
 
 form{
-    padding: 55px 40px 10px 40px;
+    padding: 20px 40px 10px 20px;
     margin: 0px;
     
 }
@@ -119,4 +123,42 @@ a#btnHome{
     border-radius: 17px;
     padding-top: 5px;
     text-decoration: none;
+}
+
+.tanggal{
+    margin-left: 50px;
+}
+
+.tanggal2{
+    margin-left: 650px;
+}
+
+.tanggal3{
+    margin-left:50px;
+}
+
+.container_hist{
+    width: 60%;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 460px 65px;
+    grid-gap: 8px 60px;
+    padding: 0px 50px;
+}
+
+#grafik1{
+    width: 650px;
+    height:300px;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: #EDEDDD;
+}
+
+#grafik2{
+    width: 650px;
+    height:300px;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: #EDEDDD;
 }

@@ -10,10 +10,33 @@
 		<link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="w3-container w3-teal">
-			<h1 style="margin: 0px; padding-top: 5px;"><span>GeoData</span></h1>
+        <div class="w3-teal w3-bar">
+			<div class="w3-bar-item">
+                <h1 style="margin: 0px; font-size: 60px;"><span><b>GeoData</b></span></h1>
+			</div>
+			<div class="w3-bar-item w3-right">
+                <button class="w3-bar-item w3-button w3-right">
+                    <h4><a href="GeoData_PrakiraCuara.html" id="menuPrakira">Prakira Cuaca</a></h4>
+                </button>
+			</div>
+			<div class="w3-bar-item w3-right">
+                <button class="w3-bar-item w3-button w3-right">
+                    <div class="w3-dropdown-click hist">
+                        <h4 onclick="dropHistory()" >History Cuaca</h4>
+                        <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
+                            <a href="#" class="w3-bar-item w3-button">Albury</a>
+                            <a href="#" class="w3-bar-item w3-button">Badgerys Creek</a>
+                            <a href="#" class="w3-bar-item w3-button">Cobar</a>
+                            <a href="#" class="w3-bar-item w3-button">Coffs Harbour</a>
+                            <a href="#" class="w3-bar-item w3-button">Moree</a>
+                        </div>
+                    </div>
+                </button>
+			</div>
+		</div>
+        <!-- <div class="w3-container w3-teal">
+			<h1 style="margin: 0px; padding-top: 5px; font-size: 50px;"><span><b>GeoData</b></span></h1>
                 <div class="w3-bar" style="height: 50px; padding-right: 20px">
-                    
                     <button class="w3-bar-item w3-button w3-right">
                         <h4><a href="GeoData_PrakiraCuara.html" id="menuPrakira">Prakira Cuaca</a></h4>
                     </button>
@@ -31,7 +54,7 @@
                         </div>
                     </button>
                 </div>
-		</div>
+		</div> -->
 
         <br>
 
@@ -41,6 +64,7 @@
 
         <br>
 
+        
         <div class="w3-light-grey w3-bar">
 			<div class="w3-bar-item kota">
                 <h2>Albury</h2>
