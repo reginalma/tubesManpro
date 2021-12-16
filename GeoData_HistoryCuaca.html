@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="w3-container w3-teal">
-            <h1 style="margin: 0px; padding-top: 5px;"><span>GeoData</span></h1>
+            <h1 style="margin: 0px; padding-top: 5px; margin-bottom: -37px; padding-top: 10px; padding-left: 20px"><a href="mainPage" class="mainPageLink">GeoData</a></h1>
             <div class="w3-bar" style="height: 50px; padding-right: 20px">
                 
                 <button class="w3-bar-item w3-button w3-right">
@@ -43,6 +43,14 @@
             <input type="date" class="tanggal">
             <input type="date" class="tanggal2">
             <input type="date" class="tanggal3">
+            <a href="#" id="btnSearch" class="w3-btn">Search</a>
+            <form action="" method="" id="formKategori">
+                <select name="kategori" id="dropdownKategori">
+                    <option value="Curah Hujan">Curah Hujan</option>
+                    <option value="Suhu">Suhu</option>
+                    <option value="Kelembapan">Kelembapan</option>
+                </select>
+            </form>
         </div>
         <br>
         <div class="container_hist">
@@ -131,6 +139,7 @@
             </div>
 
             <div id="grafik1">
+                <h2 style="text-align: center; margin: 25px 0px 15px 0px;">Grafik</h2>
                 <form action="" method="">
                     <table>
                         
@@ -138,13 +147,13 @@
                 </form>
             </div>
 
-            <div id="grafik2">
+            <!-- <div id="grafik2">
                 <form action="" method="">
                     <table>
                         
                     </table>
                 </form>
-            </div>
+            </div> -->
 
             <a href="GeoData_MainPage.html" id="btnHome" class="w3-btn">Home</a>
             
