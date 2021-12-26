@@ -108,7 +108,7 @@ dt_weather.boxplot(column =['Cloud3pm'], grid = False)
 dt_weather.boxplot(column =['Temp9am'], grid = False)
 dt_weather.boxplot(column =['Temp3pm'], grid = False)
 
-# Pembersihan Data
+# Penyiapan Data
 
 #Menghapus data pada atribut yang memiliki nilai NaN
 dt_weather.dropna(subset = ['Date', 'Location', 'MinTemp', 'MaxTemp', 'Rainfall', 'Evaporation', 'Sunshine', 
@@ -929,11 +929,12 @@ print(classification_report(Y_test, Y_pred, target_names = 'RainToday'))
 
 # ===================================================================================================
 #Berdasarkan hasil eksperimen di atas, kombinasi atribut prediktor terbaik untuk atribut kelas 'Rain Today' adalah
-#4 atribut tersignifikan yaitu atribut 'Rainfall', atribut 'Sunshine', atribut 'Humidity9am', atribut 'Humidity3pm'
+#2 atribut tersignifikan yaitu atribut 'Rainfall' dan atribut 'Humidity3pm'
 
 #Pemilihan tersebut didasarkan oleh hasil komputasi metriks dari hasil evaluasi seluruh model
 
-#4 atribut tersignifikan di atas memiliki nilai akurasi sangat tinggi di antara hasil komputasi metriks lainnya.
+#2 atribut tersignifikan di atas memiliki hasil komputasi metriks tertinggi sekaligus nilai akurasi 
+#tertinggi di antara hasil komputasi metriks lainnya.
 
 # ===================================================================================================
 # Pencarian atribut predictor terbaik
@@ -1678,26 +1679,24 @@ from sklearn.metrics import classification_report
 print(classification_report(Y_test, Y_pred, target_names = 'RainTomorrow'))
 
 # ===================================================================================================
-#Berdasarkan hasil eksperimen di atas, kombinasi atribut prediktor terbaik untuk atribut kelas 'Rain Today' adalah
-#4 atribut tersignifikan yaitu atribut 'Rainfall', atribut 'Sunshine', atribut 'Humidity9am', atribut 'Humidity3pm'
+#Berdasarkan hasil eksperimen di atas, kombinasi atribut prediktor terbaik untuk atribut kelas 'Rain Tomorrow' adalah
+#2 atribut tersignifikan yaitu atribut 'Rainfall' dan atribut 'Humidity3pm'
 
 #Pemilihan tersebut didasarkan oleh hasil komputasi metriks dari hasil evaluasi seluruh model
 
-#4 atribut tersignifikan di atas memiliki nilai akurasi sangat tinggi di antara hasil komputasi metriks lainnya.
+#2 atribut tersignifikan di atas memiliki hasil komputasi metriks tertinggi sekaligus nilai akurasi 
+#tertinggi di antara hasil komputasi metriks lainnya.
 
 # ===================================================================================================
 # Algoritma k-NN
 # Atribut kelas: 'RainToday'
 
 #Buat features dari kombinasi atribut terbaik yaitu 4 atribut tersignifikan
-#atribut 'Rainfall', atribut 'Sunshine', atribut 'Humidity9am', atribut 'Humidity3pm'
+#'Rainfall', 'Humidity3pm'
 dt_weather_features = dt_weather[['Rainfall', 'Sunshine', 'Humidity9am','Humidity3pm']]
 
 #Buat array Numpy untuk features
 array_weather_features = np.array(dt_weather_features.values)
-
-# ubah jadi string
-dt_weather['RainToday'] = dt_weather['RainToday'].astype(str)
 
 #Buat label kelas dari kolom 'RainToday'
 weather_labels = dt_weather[['RainToday']]  # hasil: 1 kolom 
@@ -1711,7 +1710,7 @@ label_np= weather_label_np.ravel()
 le = preprocessing.LabelEncoder()
 
 #Ubah label string ke numerik
-weatherlabels_en = le.fit_transform(label_np)
+weather_labels_en = le.fit_transform(label_np)
 print(weather_labels_en)
 
 # Import train_test_split function
@@ -2277,15 +2276,11 @@ from sklearn.metrics import classification_report
 print(classification_report(Y_test, Y_pred, target_names = 'RainToday'))
 
 # ===================================================================================================
-#nilai k terbaik yang dapat digunakan untuk model k-NN adalah nilai k = 8 karena 
-#nilai k = 8 memiliki nilai akurasi tertinggi dibandingkan dengan yang lainnya yaitu 85%
-
-# ===================================================================================================
 # Algoritma k-NN
 # Atribut kelas: 'RainTomorrow'
 
-#Buat features dari kombinasi atribut terbaik yaitu 4 atribut tersignifikan
-#atribut 'Rainfall', atribut 'Sunshine', atribut 'Humidity9am', atribut 'Humidity3pm'
+#Buat features dari kombinasi atribut terbaik yaitu  4 atribut tersignifikan
+#'Rainfall', 'Sunshine', 'Humidity9am', 'Humidity3pm'
 dt_weather_features = dt_weather[['Rainfall', 'Sunshine', 'Humidity9am','Humidity3pm']]
 
 #Buat array Numpy untuk features
@@ -2303,7 +2298,7 @@ label_np= weather_label_np.ravel()
 le = preprocessing.LabelEncoder()
 
 #Ubah label string ke numerik
-weatherlabels_en = le.fit_transform(label_np)
+weather_labels_en = le.fit_transform(label_np)
 print(weather_labels_en)
 
 # Import train_test_split function
@@ -2869,8 +2864,8 @@ from sklearn.metrics import classification_report
 print(classification_report(Y_test, Y_pred, target_names = 'RainTomorrow'))
 
 # ===================================================================================================
-#nilai k terbaik yang dapat digunakan untuk model k-NN adalah nilai k = 5 karena 
-#nilai k = 5 memiliki nilai akurasi tertinggi dibandingkan dengan yang lainnya yaitu 92%
+#nilai k terbaik yang dapat digunakan untuk model k-NN adalah nilai k = 14 karena 
+#nilai k = 14 memiliki nilai precision dan akurasi tertinggi dibandingkan dengan yang lainnya yaitu 83%
 
 # ===================================================================================================
 # Algoritma Decision Tree
@@ -2892,8 +2887,11 @@ from sklearn import tree
 from sklearn.tree import export_graphviz
 import pydotplus
 
-#Buat features dari kombinasi atribut terbaik yaitu 4 atribut tersignifikan
-#atribut 'Rainfall', atribut 'Sunshine', atribut 'Humidity9am', atribut 'Humidity3pm'
+#Read wine dataset
+# dt_iris = pd.read_csv('wine.csv', delimiter = ',')
+
+#Buat features dari kombinasi atribut terbaik yaitu 6 atribut tersignifikan
+#'malic_acid', 'alcalinity_of_ash', 'magnesium', 'flavanoids','color_intensity', 'proline
 dt_weather_features = dt_weather[['Rainfall', 'Sunshine', 'Humidity9am','Humidity3pm']]
 
 #Buat array Numpy untuk features
@@ -2945,7 +2943,7 @@ dot_data = export_graphviz(DT_model_weather_final,feature_names=dt_weather_featu
 graph = pydotplus.graph_from_dot_data(dot_data)
 
 #Create and save the graph of tree as image (PNG format)
-graph.write_png("Dtree_weather_RainToday.png")
+graph.write_png("Dtree_weather_model.png")
 Image(graph.create_png())
 
 # ===================================================================================================
@@ -2968,14 +2966,17 @@ from sklearn import tree
 from sklearn.tree import export_graphviz
 import pydotplus
 
-#Buat features dari kombinasi atribut terbaik yaitu 4 atribut tersignifikan
-#atribut 'Rainfall', atribut 'Sunshine', atribut 'Humidity9am', atribut 'Humidity3pm'
+#Read wine dataset
+# dt_iris = pd.read_csv('wine.csv', delimiter = ',')
+
+#Buat features dari kombinasi atribut terbaik yaitu  4 atribut tersignifikan
+#'Rainfall', 'Sunshine', 'Humidity9am', 'Humidity3pm'
 dt_weather_features = dt_weather[['Rainfall', 'Sunshine', 'Humidity9am','Humidity3pm']]
 
 #Buat array Numpy untuk features
 array_weather_features = np.array(dt_weather_features.values)
 
-#Buat label kelas dari kolom 'RainTomorrow'
+#Buat label kelas dari kolom 'RainToday'
 weather_labels = dt_weather[['RainTomorrow']]  # hasil: 1 kolom 
 #Buat array Numpy utk kelas/label
 weather_label_np = np.array(weather_labels.values) # numpy array 
@@ -3021,5 +3022,192 @@ dot_data = export_graphviz(DT_model_weather_final,feature_names=dt_weather_featu
 graph = pydotplus.graph_from_dot_data(dot_data)
 
 #Create and save the graph of tree as image (PNG format)
-graph.write_png("Dtree_weather_RainTomorrow.png")
+graph.write_png("Dtree_weather_model.png")
 Image(graph.create_png())
+
+# ===================================================================================================
+# MODEL TERBAIK
+
+# Atribut kelas: 'RainToday'
+# Algoritma Decision Tree
+
+import pickle
+# Import train_test_split function
+from sklearn.model_selection import train_test_split
+#Import scikit-learn metrics module for accuracy calculation
+from sklearn import metrics
+# Import the classification library
+from sklearn import tree
+
+#Visualize the Decision Tree model 
+#Untuk menambah library python-graphviz pada Anaconda:
+#Buka  Anaconda Prompt (as Administrator), lalu jalankan:
+# conda install -c anaconda pydotplus
+
+from sklearn.tree import export_graphviz
+import pydotplus
+
+#Read wine dataset
+# dt_iris = pd.read_csv('wine.csv', delimiter = ',')
+
+#Buat features dari kombinasi atribut terbaik yaitu  4 atribut tersignifikan
+#'Rainfall', 'Sunshine', 'Humidity9am', 'Humidity3pm'
+dt_weather_features = dt_weather[['Rainfall', 'Sunshine', 'Humidity9am','Humidity3pm']]
+
+#Buat array Numpy untuk features
+array_weather_features = np.array(dt_weather_features.values)
+
+#Buat label kelas dari kolom 'RainToday'
+weather_labels = dt_weather[['RainToday']]  # hasil: 1 kolom 
+#Buat array Numpy utk kelas/label
+weather_label_np = np.array(weather_labels.values) # numpy array 
+
+X = array_weather_features
+Y = weather_label_np
+
+# Split dataset into training set and test set: 70% training and 30% test
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.3, random_state=3) 
+
+# Create/initiate the Decision Tree classifer model
+DT_model_weather = tree.DecisionTreeClassifier(criterion='entropy')
+# Train Decision Tree Classifer using the 70% of the dataset
+DT_model_weather.fit(X_train,Y_train)
+
+#Predict the response for test dataset
+Y_pred = DT_model_weather.predict(X_test)
+
+# Evaluate model using test (30%) dataset, print the accuracy
+weather_classes = weather_labels.RainToday.unique()
+print(weather_classes)
+
+# Hitung dan tampilkan metriks evaluator model klasifikasi
+from sklearn.metrics import classification_report
+print(classification_report(Y_test, Y_pred, target_names = 'RainToday'))
+
+#======jika sudah memperoleh kriteria model yg akurasinya tinggi,
+#buat model finalnya dengan menggunakan seluruh data input yg dimiliki======
+DT_model_weather_final = tree.DecisionTreeClassifier(criterion='entropy')
+DT_model_weather_final.fit(X,Y)
+
+#Visualize the Decision Tree model 
+
+from six import StringIO
+from IPython.display import Image
+
+int_class_names=DT_model_weather_final.classes_
+str_class_names = int_class_names.astype(str)
+
+#Nama2 fitur/prediktor di DT diambil dari nama atribut prediktor yang dipakai membuat model
+#Begitu juga dengan kelas targetnya
+dot_data = export_graphviz(DT_model_weather_final,feature_names=dt_weather_features.columns, class_names=str_class_names, filled=True,rounded=True,special_characters=True)
+graph = pydotplus.graph_from_dot_data(dot_data)
+
+#Create and save the graph of tree as image (PNG format)
+graph.write_png("Dtree_weather_model.png")
+Image(graph.create_png())
+
+#====== SIMPAN MODEL ========
+
+#Simpan model dgn nama: Model_DT_RainToday.pkl
+pkl_filename = "Model_DT_RainToday.pkl"  
+with open(pkl_filename, 'wb') as file:  
+    pickle.dump(DT_model_weather_final, file)
+
+#============== pemanfaatan model ================
+    
+# Cara:
+#Load/baca model yg sudah disimpan
+import pickle
+pkl_filename = "Model_DT_RainToday.pkl" 
+with open(pkl_filename, 'rb') as file:  
+    loaded_model_DT_RainToday = pickle.load(file)
+    
+#Load data baru yg akan diprediksi label kelasnya
+df_new = pd.read_csv('new_data.csv', delimiter = ',')
+#pastikan jumlah kolomnya sama dengan jumlah atribut fitur terpilih yang digunakan saat pembuatan model final
+X_new = df_new[['Rainfall', 'Sunshine', 'Humidity9am','Humidity3pm']].values
+
+#Lakukan prediksi (mencari nilai mpg)
+Y_pred_new = loaded_model_DT_RainToday.predict(X_new)
+print(Y_pred_new)
+# ===================================================================================================
+# Atribut kelas: 'RainTomorrow'
+# Algoritma k-NN untuk k = 19
+
+#Buat features dari kombinasi atribut terbaik yaitu  4 atribut tersignifikan
+#'Rainfall', 'Sunshine', 'Humidity9am', 'Humidity3pm'
+dt_weather_features = dt_weather[['Rainfall', 'Sunshine', 'Humidity9am','Humidity3pm']]
+
+#Buat array Numpy untuk features
+array_weather_features = np.array(dt_weather_features.values)
+
+#Buat label kelas dari kolom 'RainTomorrow'
+weather_labels = dt_weather[['RainTomorrow']]  # hasil: 1 kolom 
+#Buat array Numpy utk kelas/label
+weather_label_np = np.array(weather_labels.values) # numpy array 
+
+#Ubah matriks 1 kolom ke 1 baris (supaya dapat menjadi parameter le.fit_transform(.))
+label_np= weather_label_np.ravel()
+
+#creating labelEncoder
+le = preprocessing.LabelEncoder()
+
+#Ubah label string ke numerik
+weather_labels_en = le.fit_transform(label_np)
+print(weather_labels_en)
+
+# Import train_test_split function
+from sklearn.model_selection import train_test_split
+
+X = array_weather_features
+Y = weather_labels_en
+
+# Split dataset into training set and test set: 70% training and 30% test
+X_train, X_test, Y_train, Y_test = train_test_split(array_weather_features, weather_labels_en, test_size=0.3) 
+
+#Klasifikasi dataset wine.cvs dgn algoritma k-NN
+from sklearn.neighbors import KNeighborsClassifier
+
+#Buat model dgn jumlah neighbor = k = 19
+kNN_model_weather = KNeighborsClassifier(n_neighbors=19)
+
+#Train the model using the training sets
+kNN_model_weather.fit(X_train, Y_train)
+
+#Predict the response for test dataset
+Y_pred = kNN_model_weather.predict(X_test)
+
+weather_classes = weather_labels.RainTomorrow.unique()
+print(weather_classes)
+
+# Hitung dan tampilkan metriks evaluator model klasifikasi
+from sklearn.metrics import classification_report
+print(classification_report(Y_test, Y_pred, target_names = 'RainTomorrow'))
+
+#====== SIMPAN MODEL ======
+
+import pickle
+
+#Simpan model dgn nama: Model_kNN_RainTomorrow.pkl
+pkl_filename = "Model_kNN_RainTomorrow.pkl"  
+with open(pkl_filename, 'wb') as file:  
+    pickle.dump(kNN_model_weather, file)
+    
+#============== pemanfaatan model ================
+    
+# Cara:
+#Load/baca model yg sudah disimpan
+import pickle 
+pkl_filename = "Model_kNN_RainTomorrow.pkl"  
+with open(pkl_filename, 'rb') as file:  
+    loaded_model_kNN_RainToday = pickle.load(file)
+
+
+#Load data baru yg akan diprediksi label kelasnya
+df_new = pd.read_csv('new_data.csv', delimiter = ',')
+#pastikan jumlah kolomnya sama dengan jumlah atribut fitur pada model
+X_new = df_new[['Rainfall', 'Sunshine', 'Humidity9am','Humidity3pm']].values
+
+#Lakukan prediksi (mencari nilai mpg)
+Y_pred_new = loaded_model_kNN_RainTomorrow.predict(X_new)
+print(Y_pred_new)
