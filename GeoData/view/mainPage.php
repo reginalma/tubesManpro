@@ -88,73 +88,27 @@
                 </button>
             </div>
 		</div>
-
         <br>
-
         <div class="cuaca">
             <h1>Cuaca Hari Ini</h1>
         </div>
         <br>
-        <div class="bar">
-			<div class="kota">
-                <h2>Albury</h2>
-			</div>
-			<div class="status">
-                <h2>Cerah</h2>
-			</div>
-			<div class="temp">
-                <h2>28C</h2>
-			</div>
-		</div>
-        <br>
-        <div class="bar">
-			<div class="kota">
-                <h2>Badgerys Creek</h2>
-			</div>
-			<div class="status">
-                <h2>Hujan</h2>
-			</div>
-			<div class="temp">
-                <h2>13C</h2>
-			</div>
-		</div>
-        <br>
-        <div class="bar">
-			<div class="kota">
-                <h2>Cobar</h2>
-			</div>
-			<div class="status">
-                <h2>Cerah</h2>
-			</div>
-			<div class="temp">
-                <h2>29C</h2>
-			</div>
-		</div>
-        <br>
-        <div class="bar">
-			<div class="kota">
-                <h2>Coffs Harbour</h2>
-			</div>
-			<div class="status">
-                <h2>Cerah</h2>
-			</div>
-			<div class="temp">
-                <h2>27C</h2>
-			</div>
-		</div>
-        <br>
-        <div class="bar">
-			<div class="kota">
-                <h2>Moree</h2>
-			</div>
-			<div class="status">
-                <h2>Hujan</h2>
-			</div>
-			<div class="temp">
-                <h2>10C</h2>
-			</div>
-		</div>
-
+        <?php
+            foreach($array_kota as $k) {
+                echo "<div class='bar'>";
+                echo     "<div class='kota'>";
+                echo         "<h2>$k</h2>";
+                echo     "</div>";
+                echo     "<div class='status'>";
+                echo         "<h2>Cerah</h2>";
+                echo     "</div>";
+                echo     "<div class='temp'>";
+                echo         "<h2>28C</h2>";
+                echo     "</div>";
+		        echo "</div>";
+                echo "<br>";
+            }
+        ?>
         <script>
             function dropHistory() {
                 var x = document.getElementById("Demo");

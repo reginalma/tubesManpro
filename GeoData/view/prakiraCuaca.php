@@ -64,7 +64,6 @@
                 'Uluru'
             );
         ?>
-
         <div class="w3-container header">
             <h1 style="margin: 0px; padding-top: 5px; margin-bottom: -37px; padding-top: 10px; padding-left: 20px">
                 <a href="mainPage" class="mainPageLink">
@@ -75,7 +74,6 @@
                 <button class="w3-bar-item w3-button w3-right buttonPrakira">
                     <h4><a href="prakiraCuaca" id="menuPrakira">Prakira Cuaca</a></h4>
                 </button>
-    
                 <button class="w3-bar-item w3-button w3-right buttonHistory">
                     <div class="w3-dropdown-click hist">
                         <h4 onclick="dropHistory()" >History Cuaca</h4>
