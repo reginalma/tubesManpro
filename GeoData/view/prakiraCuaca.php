@@ -65,7 +65,7 @@
             );
         ?>
         <div class="w3-container header">
-            <h1 style="margin: 0px; padding-top: 5px; margin-bottom: -37px; padding-top: 10px; padding-left: 20px">
+            <h1 style="margin: 0px; margin-bottom: -37px; padding-top: 20px; padding-left: 20px">
                 <a href="mainPage" class="mainPageLink">
                     GeoData
                 </a>
@@ -149,7 +149,7 @@
                         </tr> 
                     </table>
 
-                    <input id="sumbitForm" type="submit" value="Submit">
+                    <input id="sumbitForm" type="submit" value="Submit" style="margin-top: 5px">
                 </form>
             </div>
 

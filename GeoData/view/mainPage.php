@@ -65,7 +65,7 @@
             );
         ?>
         <div class="w3-container header">
-            <h1 style="margin: 0px; padding-top: 5px; margin-bottom: -37px; padding-top: 10px; padding-left: 20px">
+            <h1 style="margin: 0px; margin-bottom: -37px; padding-top: 20px; padding-left: 20px">
                 <a href="mainPage" class="mainPageLink">
                     GeoData
                 </a>
@@ -100,10 +100,10 @@
                 echo         "<h2>$k</h2>";
                 echo     "</div>";
                 echo     "<div class='status'>";
-                echo         "<h2>Cerah</h2>";
+                echo         "<h2>$stat</h2>";
                 echo     "</div>";
                 echo     "<div class='temp'>";
-                echo         "<h2>28C</h2>";
+                echo         "<h2>$temp&deg;C</h2>";
                 echo     "</div>";
 		        echo "</div>";
                 echo "<br>";

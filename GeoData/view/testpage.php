@@ -3,6 +3,4 @@
     $output = shell_exec($command);
     echo $output;
     // $output = passthru("python testPrintData.py")
-    
-    echo "<img src='image/partly_coudly.png' alt='partly' style='width: 100%'>";
 ?>

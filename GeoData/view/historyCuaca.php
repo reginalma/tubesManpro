@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="view/style/style.css">
     </head>
     <body>
-        <?php
+    <?php
             $array_kota = array(
                 'Albury', 
                 'BadgerysCreek', 
@@ -65,7 +65,7 @@
             );
         ?>
         <div class="w3-container header">
-            <h1 style="margin: 0px; padding-top: 5px; margin-bottom: -37px; padding-top: 10px; padding-left: 20px">
+            <h1 style="margin: 0px; margin-bottom: -37px; padding-top: 20px; padding-left: 20px">
                 <a href="mainPage" class="mainPageLink">
                     GeoData
                 </a>
@@ -93,10 +93,12 @@
 
         <div class="cuaca">
             <h1>
-                <?php echo($_GET['kota']) ?>
+                <?php
+                    echo $_GET['kota'];
+                ?>
             </h1>
         </div>
-
+        
         <div>
             <input type="date" class="tanggal">
             <input type="date" class="tanggal2">
