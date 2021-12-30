@@ -14,6 +14,16 @@
                 $prakira = new prakiraCuacaController();
                 echo $prakira->start();
                 break;
+            case $baseURL."/historyCuaca":
+                require_once "controller/historyCuacaController.php";
+                $history = new historyCuacaController();
+                echo $history->start();
+                break;
+            case $baseURL."/test":
+                require_once "controller/testController.php";
+                $test = new testController();
+                echo $test->start();
+                break;
         
             default :
                 echo '404 not found';
