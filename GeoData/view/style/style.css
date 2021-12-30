@@ -195,3 +195,74 @@ a#btnHome{
     padding-top: 5px;
     text-decoration: none;
 }
+
+.tanggal{
+    margin-left: 50px;
+}
+
+.tanggal2{
+    margin-left: 650px;
+}
+
+.tanggal3{
+    margin-left:20px;
+}
+
+#dropdownKategori{
+    /* background-color: white; */
+    width: 130px;
+    height: 40px;
+    color: black;
+    text-align: center;    
+    
+}
+
+form#formKategori{
+    float: right;
+    padding: 0px;
+    margin-right: 25px;
+}
+
+#btnSearch{
+    float: right;
+    background-color: #9EB998;
+    margin: 2px 65px 2px 0px;
+    color: white;
+    font-size: 16px;
+    border-radius: 17px;
+    padding-top: 5px;
+    text-decoration: none;
+}
+
+.container_hist{
+    width: 100%;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 460px 65px;
+    grid-gap: 8px 60px;
+    padding: 0px 50px;
+}
+
+#formPredik{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    /* border: 2px solid black; */
+    background-color: #EDEDDD;
+}
+
+#grafik1{
+    /* width: 650px;
+    height:300px; */
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: #EDEDDD;
+}
+
+#grafik2{
+    width: 650px;
+    height:300px;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: #EDEDDD;
+}
