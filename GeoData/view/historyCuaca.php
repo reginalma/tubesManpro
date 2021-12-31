@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="view/style/style.css">
     </head>
     <body>
-    <?php
+        <?php
             $array_kota = array(
                 'Albury', 
                 'BadgerysCreek', 
@@ -88,9 +88,7 @@
                 </button>
             </div>
 		</div>
-
         <br>
-
         <div class="cuaca">
             <h1>
                 <?php
@@ -98,7 +96,6 @@
                 ?>
             </h1>
         </div>
-        
         <div>
             <input type="date" class="tanggal">
             <input type="date" class="tanggal2">
@@ -122,31 +119,26 @@
                                 Suhu
                             </td>
                         </tr>   
-
                         <tr>
                             <td>
                                 Kecepatan Angin
                             </td>
                         </tr> 
-
                         <tr>
                             <td>
                                 Kelembapan
                             </td>
                         </tr> 
-
                         <tr>
                             <td>
                                 Curah Hujan
                             </td>
                         </tr> 
-
                         <tr>
                             <td>
                                 Tekanan
                             </td>
                         </tr> 
-
                         <tr>
                             <td>
                                 Arah Angin
@@ -155,7 +147,6 @@
                     </table>
                 </form>
             </div>
-
             <div id="formPredik">
                 <form action="" method="">
                     <table>
@@ -164,31 +155,26 @@
                                 Suhu
                             </td>
                         </tr>   
-
                         <tr>
                             <td>
                                 Kecepatan Angin
                             </td>
                         </tr> 
-
                         <tr>
                             <td>
                                 Kelembapan
                             </td>
                         </tr> 
-
                         <tr>
                             <td>
                                 Curah Hujan
                             </td>
                         </tr> 
-
                         <tr>
                             <td>
                                 Tekanan
                             </td>
                         </tr> 
-
                         <tr>
                             <td>
                                 Arah Angin
@@ -197,7 +183,6 @@
                     </table>
                 </form>
             </div>
-
             <div id="grafik1">
                 <h2 style="text-align: center; margin: 25px 0px 15px 0px;">Grafik</h2>
                 <form action="" method="">
@@ -214,13 +199,8 @@
                     </table>
                 </form>
             </div> -->
-
             <a href="GeoData_MainPage.html" id="btnHome" class="w3-btn">Home</a>
-            
         </div>
-
-        <br>
-
         <script>
             function dropHistory() {
                 var x = document.getElementById("Demo");

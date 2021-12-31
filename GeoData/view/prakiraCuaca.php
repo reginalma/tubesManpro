@@ -88,15 +88,12 @@
                 </button>
             </div>
 		</div>
-
         <br>
-
         <div class="cuaca">
             <h1>
                 Prakira Cuaca
             </h1>
         </div>
-
         <div class="containerDropdown">
             <form action="" method="">
                 <select name="hari" id="dropdownHari">
@@ -105,9 +102,7 @@
                 </select>
             </form>
         </div>
-
         <br>
-
         <div class="container">
             <div id="formPredik">
                 <form action="" method="GET">
@@ -120,7 +115,6 @@
                                 <input type="text" name="rainfall">
                             </td>
                         </tr>   
-
                         <tr>
                             <td>
                                 Sunshine
@@ -129,7 +123,6 @@
                                 <input type="text" name="sunshine">
                             </td>
                         </tr> 
-
                         <tr>
                             <td>
                                 Humidity 9am
@@ -138,7 +131,6 @@
                                 <input type="text" name="humidity9am">
                             </td>
                         </tr> 
-
                         <tr>
                             <td>
                                 Humidity 3pm
@@ -148,17 +140,15 @@
                             </td>
                         </tr> 
                     </table>
-
                     <input id="sumbitForm" type="submit" value="Submit" style="margin-top: 5px">
                 </form>
             </div>
-
             <div id="result">
                 <h1>Hasil Prediksi</h1>
             </div>
-
-            <a href="mainPage" id="btnHome" class="w3-btn">Home</a>
-            
+            <a href="mainPage" id="btnHome" class="w3-btn">
+                Home
+            </a>
         </div>
 
         <script>
