@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="view/style/style.css">
     </head>
     <body>
-    <?php
+        <?php
             $array_kota = array(
                 'Albury', 
                 'BadgerysCreek', 
@@ -101,9 +101,13 @@
                 echo     "</div>";
                 echo     "<div class='status'>";
                 echo         "<h2>$stat</h2>";
+                // echo         "<h2>cerah</h2>";
                 echo     "</div>";
+                $var = 'Suhu';
+                $cmd = escapeshellcmd("python D:\UtilityApp\xampp\htdocs\GeoData\model\testPrintData.py $var $k");
                 echo     "<div class='temp'>";
                 echo         "<h2>$temp&deg;C</h2>";
+                // echo         "<h2>28&deg;C</h2>";
                 echo     "</div>";
 		        echo "</div>";
                 echo "<br>";
