@@ -8,7 +8,7 @@ Created on Mon Nov 29 12:56:57 2021
 import numpy as np
 import pandas as pd 
 
-#Baca file csv simpan sebagai objek dataframe dt_wine 
+#Baca file csv simpan sebagai objek dataframe dt_weather
 dt_weather = pd.read_csv('weather_uts.csv', delimiter = ',')
 
 #Cek df
