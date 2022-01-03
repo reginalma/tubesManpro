@@ -98,7 +98,7 @@
             <form action="" method="">
                 <select name="hari" id="dropdownHari">
                     <option value="hari ini">Hari ini</option>
-                    <option value="besok">Besok</option>
+                    <option value="besok">Besok Hari</option>
                 </select>
             </form>
         </div>

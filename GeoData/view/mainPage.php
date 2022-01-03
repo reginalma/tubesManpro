@@ -99,15 +99,17 @@
                 echo     "<div class='kota'>";
                 echo         "<h2>$k</h2>";
                 echo     "</div>";
+
+                $command_stat = escapeshellcmd("python ..\\GeoData\\model\\WeatherStatus$k.py");
+                $stat = shell_exec($command_stat);
                 echo     "<div class='status'>";
                 echo         "<h2>$stat</h2>";
-                // echo         "<h2>cerah</h2>";
                 echo     "</div>";
-                $var = 'Suhu';
-                $cmd = escapeshellcmd("python D:\UtilityApp\xampp\htdocs\GeoData\model\testPrintData.py $var $k");
+
+                $command_temp = escapeshellcmd("python ..\\GeoData\\model\\WeatherTemp$k.py");
+                $temp = shell_exec($command_temp);
                 echo     "<div class='temp'>";
                 echo         "<h2>$temp&deg;C</h2>";
-                // echo         "<h2>28&deg;C</h2>";
                 echo     "</div>";
 		        echo "</div>";
                 echo "<br>";
