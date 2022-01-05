@@ -94,17 +94,9 @@
                 Prakira Cuaca
             </h1>
         </div>
-        <!-- <div class="containerDropdown">
-            <form action="" method="GET">
-                <select name="hari" id="dropdownHari">
-                    <option value="hari ini">Hari ini</option>
-                    <option value="besok">Besok</option>
-                </select>
-            </form>
-        </div> -->
         <br>
         <div class="container">
-            <div id="formPredik">
+            <div id="formPredik" style="height: 540px; padding-bottom: 20px">
                 <form action="" method="GET">
                     <table>
                         <tr>
@@ -138,7 +130,6 @@
                             <td>
                                 <input type="text" name="humidity3pm">
                             </td>
-                            
                         </tr>
                         <tr>
                             <td>
@@ -150,9 +141,7 @@
                                 <option value="besok">Besok</option>
                             </select>
                             </td>
-                            
                         </tr> 
-                        
                     </table>
                     <input id="sumbitForm" type="submit" value="Submit" style="margin-top: 5px">
                 </form>
@@ -165,51 +154,48 @@
                         let time = document.getElementById('dropdownHari').value;
                         return time
                     }
-    
                 </script>
                 <?php
                     if(isset($_GET["humidity9am"]) && isset($_GET["humidity3pm"]) && isset($_GET["rainfall"]) && isset($_GET["sunshine"])){
-                        
                         $hari = $_GET["hari"];
-                        echo $hari;
-                        $c=$_GET["humidity9am"];
-                        $d=$_GET["humidity3pm"];
                         $a=$_GET["rainfall"];
                         $b=$_GET["sunshine"];
-                        //echo "<h1>Melika</h1>";
-                        //echo "<script> document.getElementById('dropdownHari').value </script>";
+                        $c=$_GET["humidity9am"];
+                        $d=$_GET["humidity3pm"];
                         if($hari == "hari ini"){
                             $tmp = exec("python ..\\GeoData\\predict\\predict_today.py 2>&1".$a." ".$b." ".$c." ".$d);
                             if($tmp == "Yes"){
-                                echo "<img  class=\"result\" src=\"view/image/thunderstorms.png\" width=\"250\" height=\"230\" style='text-align: center'>";
+                                echo "<img  class=\"result\" src=\"view/image/cloud-rain-icons-11033.png\" width=\"250\" height=\"230\" style=\"margin-left: 320px\">";
                                 echo "<h1>Hujan</h1>";  
                             }else if($tmp == "No"){
-                                echo "<img class=\"result\" src=\"view/image/sun.png\" width=\"250\" height=\"250\">";
+                                echo "<img class=\"result\" src=\"view/image/sun.png\" width=\"250\" height=\"250\" style=\"margin-left: 320px\">";
                                 echo "<h1>Cerah</h1>";  
                             }
                         }
-                        else if($hari == "besok"){
+                        else{
                             $tmp = exec("python ..\\GeoData\\predict\\predict_tomorrow.py 2>&1".$a." ".$b." ".$c." ".$d);
-                            if($tmp == "1"){
-                                echo "<img  class=\"result\" src=\"view/image/thunderstorms.png\" width=\"250\" height=\"230\">";
+                            // if($tmp == "1"){
+                            //     echo "<img  class=\"result\" src=\"view/image/thunderstorms.png\" width=\"250\" height=\"230\">";
+                            //     echo "<h1>Hujan</h1>";  
+                            // }else if($tmp == "0"){
+                            //     echo "<img class=\"result\" src=\"view/image/sun.png\" width=\"250\" height=\"250\">";
+                            //     echo "<h1>Cerah</h1>";  
+                            // }
+                            if($tmp == "Yes"){
+                                echo "<img  class=\"result\" src=\"view/image/cloud-rain-icons-11033.png\" width=\"250\" height=\"230\" style=\"margin-left: 320px\">";
                                 echo "<h1>Hujan</h1>";  
-                            }else if($tmp == "0"){
-                                echo "<img class=\"result\" src=\"view/image/sun.png\" width=\"250\" height=\"250\">";
+                            }else if($tmp == "No"){
+                                echo "<img class=\"result\" src=\"view/image/sun.png\" width=\"250\" height=\"250\" style=\"margin-left: 320px\">";
                                 echo "<h1>Cerah</h1>";  
                             }
                         }
-
                     }
-
                 ?>
-                <!-- <img src="view/image/thunderstorms.png" width="250" height="230"> -->
-                <!-- <img src="view/image/sun.png" width="250" height="250"> -->
             </div>
-            <a href="mainPage" id="btnHome" class="w3-btn">
+            <a href="mainPage" id="btnHome" class="w3-btn" style="margin-top: 100px">
                 Home
             </a>
         </div>
-
         <script>
             function dropHistory() {
                 var x = document.getElementById("Demo");
