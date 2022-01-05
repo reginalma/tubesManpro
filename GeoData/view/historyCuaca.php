@@ -1,3 +1,9 @@
+<?php
+    // session_start();
+    print_r($result);
+    echo $_SESSION['kota'];
+    echo $_GET['tanggal'];
+?>
 <html>
     <head>
         <title>GeoData</title>
@@ -13,7 +19,7 @@
     </head>
     <body>
         <?php
-            session_start();
+            
 
             $array_kota = array(
                 'Albury', 
@@ -130,7 +136,7 @@
                     <table style="margin-top: -20px">
                         <?php
                             if (isset($_GET['tanggal'])) {
-                                $command_history_temp = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryTemp.py, $kota_history $tanggalH");
+                                $command_history_temp = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryTemp.py $kota_history $tanggalH");
                                 // echo $command_history_temp;
                                 // $command_history_temp = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryTemp.py $kota_history");
                                 // $command_history_temp = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryTemp.py $tanggalH");
