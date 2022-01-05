@@ -100,13 +100,13 @@
                 echo         "<h2>$k</h2>";
                 echo     "</div>";
 
-                $command_stat = escapeshellcmd("python ..\\GeoData\\model\\WeatherStatus$k.py");
+                $command_stat = escapeshellcmd("python ..\\GeoData\\model\\WeatherStatus.py $k");
                 $stat = shell_exec($command_stat);
                 echo     "<div class='status'>";
                 echo         "<h2>$stat</h2>";
                 echo     "</div>";
 
-                $command_temp = escapeshellcmd("python ..\\GeoData\\model\\WeatherTemp$k.py");
+                $command_temp = escapeshellcmd("python ..\\GeoData\\model\\WeatherTemp.py $k");
                 $temp = shell_exec($command_temp);
                 echo     "<div class='temp'>";
                 echo         "<h2>$temp&deg;C</h2>";

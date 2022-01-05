@@ -97,7 +97,7 @@
             </h1>
         </div>
         <div>
-            <input type="date" class="tanggal">
+            <input type="date" class="tanggal" value="<?php echo date('Y-m-d') ?>">
             <input type="date" class="tanggal2">
             <input type="date" class="tanggal3">
             <a href="#" id="btnSearch" class="w3-btn">Search</a>
