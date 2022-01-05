@@ -94,14 +94,14 @@
                 Prakira Cuaca
             </h1>
         </div>
-        <div class="containerDropdown">
-            <form action="" method="">
+        <!-- <div class="containerDropdown">
+            <form action="" method="GET">
                 <select name="hari" id="dropdownHari">
                     <option value="hari ini">Hari ini</option>
-                    <option value="besok">Besok Hari</option>
+                    <option value="besok">Besok</option>
                 </select>
             </form>
-        </div>
+        </div> -->
         <br>
         <div class="container">
             <div id="formPredik">
@@ -138,13 +138,72 @@
                             <td>
                                 <input type="text" name="humidity3pm">
                             </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                Waktu Prediksi
+                            </td>
+                            <td>
+                            <select name="hari" id="dropdownHari">
+                                <option value="hari ini">Hari ini</option>
+                                <option value="besok">Besok</option>
+                            </select>
+                            </td>
+                            
                         </tr> 
+                        
                     </table>
                     <input id="sumbitForm" type="submit" value="Submit" style="margin-top: 5px">
                 </form>
             </div>
             <div id="result">
                 <h1>Hasil Prediksi</h1>
+                <script>
+                    function getTime(){
+                        console.log(document.getElementById('dropdownHari').value);
+                        let time = document.getElementById('dropdownHari').value;
+                        return time
+                    }
+    
+                </script>
+                <?php
+                    if(isset($_GET["humidity9am"]) && isset($_GET["humidity3pm"]) && isset($_GET["rainfall"]) && isset($_GET["sunshine"])){
+                        
+                        $hari = $_GET["hari"];
+                        echo $hari;
+                        $c=$_GET["humidity9am"];
+                        $d=$_GET["humidity3pm"];
+                        $a=$_GET["rainfall"];
+                        $b=$_GET["sunshine"];
+                        //echo "<h1>Melika</h1>";
+                        //echo "<script> document.getElementById('dropdownHari').value </script>";
+                        if($hari == "hari ini"){
+                            $tmp = exec("python ..\\GeoData\\predict\\predict_today.py 2>&1".$a." ".$b." ".$c." ".$d);
+                            if($tmp == "Yes"){
+                                echo "<img  class=\"result\" src=\"view/image/thunderstorms.png\" width=\"250\" height=\"230\" style='text-align: center'>";
+                                echo "<h1>Hujan</h1>";  
+                            }else if($tmp == "No"){
+                                echo "<img class=\"result\" src=\"view/image/sun.png\" width=\"250\" height=\"250\">";
+                                echo "<h1>Cerah</h1>";  
+                            }
+                        }
+                        else if($hari == "besok"){
+                            $tmp = exec("python ..\\GeoData\\predict\\predict_tomorrow.py 2>&1".$a." ".$b." ".$c." ".$d);
+                            if($tmp == "1"){
+                                echo "<img  class=\"result\" src=\"view/image/thunderstorms.png\" width=\"250\" height=\"230\">";
+                                echo "<h1>Hujan</h1>";  
+                            }else if($tmp == "0"){
+                                echo "<img class=\"result\" src=\"view/image/sun.png\" width=\"250\" height=\"250\">";
+                                echo "<h1>Cerah</h1>";  
+                            }
+                        }
+
+                    }
+
+                ?>
+                <!-- <img src="view/image/thunderstorms.png" width="250" height="230"> -->
+                <!-- <img src="view/image/sun.png" width="250" height="250"> -->
             </div>
             <a href="mainPage" id="btnHome" class="w3-btn">
                 Home
