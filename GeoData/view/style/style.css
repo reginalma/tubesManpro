@@ -134,7 +134,7 @@ select#dropdownHari option{
     grid-row-start: 1;
     grid-row-end: 2;
     /* border: 2px solid black; */
-    background-color: #EDEDDD;
+    background-color: white;
 }
 
 form{
@@ -204,7 +204,7 @@ a#btnHome{
 }
 
 .tanggal3{
-    margin-left:20px;
+    margin-left: 20px;
 }
 
 #dropdownKategori{
@@ -264,4 +264,8 @@ form#formKategori{
     grid-row-start: 1;
     grid-row-end: 2;
     background-color: #EDEDDD;
+}
+
+.result {
+    margin-left: 280px;
 }
