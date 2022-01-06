@@ -53,98 +53,98 @@
             $this->rainTomorrow=$rainTomorrow;
         }
 
-    public function getDate (){
-        return $this->date;
-    }
+        public function getDate (){
+            return $this->date;
+        }
 
-    
-    public function getLocation (){
-        return $this->location;
-    }
+        
+        public function getLocation (){
+            return $this->location;
+        }
 
-    
-    public function getMinTemp (){
-        return $this->minTemp;
-    }
-    
-    public function getMaxTemp (){
-        return $this->maxTemp;
-    }
+        
+        public function getMinTemp (){
+            return $this->minTemp;
+        }
+        
+        public function getMaxTemp (){
+            return $this->maxTemp;
+        }
 
-    public function getRainfall(){
-        return $this->rainfall;
-    }
-    public function getEvaporation(){
-        return $this->evaporation;
-    }
-    public function getSunshine(){
-        return $this->sunshine;
-    }
+        public function getRainfall(){
+            return $this->rainfall;
+        }
+        public function getEvaporation(){
+            return $this->evaporation;
+        }
+        public function getSunshine(){
+            return $this->sunshine;
+        }
 
-    public function getWindgustdir(){
-        return $this -> windGustDir;
-    }
+        public function getWindgustdir(){
+            return $this -> windGustDir;
+        }
 
-    public function getWindgustspeed(){
-        return $this-> windGustspeed;
-    }
+        public function getWindgustspeed(){
+            return $this-> windGustspeed;
+        }
 
-    public function getWinddir9am(){
-        return $this-> windDir9am;
-    }
+        public function getWinddir9am(){
+            return $this-> windDir9am;
+        }
 
-    public function getWinddir3pm(){
-        return $this-> windSpeed3pm;
-    }
+        public function getWinddir3pm(){
+            return $this-> windSpeed3pm;
+        }
 
-    public function getWindspeed9am(){
-        return $this-> windSpeed9am;
-    }
-    
-    public function getWindspeed3pm(){
-        return $this-> windSpeed3pm;
-    }
+        public function getWindspeed9am(){
+            return $this-> windSpeed9am;
+        }
+        
+        public function getWindspeed3pm(){
+            return $this-> windSpeed3pm;
+        }
 
-    public function getHumidity9am(){
-        return $this-> humidity9am;
-    }
+        public function getHumidity9am(){
+            return $this-> humidity9am;
+        }
 
-    public function getHumidity3pm(){
-        return $this-> humidity3pm;
-    }
+        public function getHumidity3pm(){
+            return $this-> humidity3pm;
+        }
 
-    public function getPressure9am(){
-        return $this-> pressure9am;
-    }
+        public function getPressure9am(){
+            return $this-> pressure9am;
+        }
 
-    public function getPressure3pm(){
-        return $this-> pressure3pm;
-    }
+        public function getPressure3pm(){
+            return $this-> pressure3pm;
+        }
 
-    public function getCloud9am(){
-        return $this-> cloud9am;
-    }
+        public function getCloud9am(){
+            return $this-> cloud9am;
+        }
 
-    public function getCloud3pm(){
-        return $this-> cloud3pm;
-    }
+        public function getCloud3pm(){
+            return $this-> cloud3pm;
+        }
 
 
-    public function getTemp9am(){
-        return $this-> temp9am;
-    }
+        public function getTemp9am(){
+            return $this-> temp9am;
+        }
 
-    public function getTemp3pm(){
-        return $this-> temp3pm;
-    }
+        public function getTemp3pm(){
+            return $this-> temp3pm;
+        }
 
-    public function getRaintoday(){
-        return $this-> rainToday;
-    }
+        public function getRaintoday(){
+            return $this-> rainToday;
+        }
 
-    public function getRaintomorrow(){
-        return $this-> rainTomorrow;
-    }
+        public function getRaintomorrow(){
+            return $this-> rainTomorrow;
+        }
     }
 
 ?>
