@@ -1,8 +1,8 @@
 <?php
     // session_start();
-    print_r($result);
-    echo $_SESSION['kota'];
-    echo $_GET['tanggal'];
+    // print_r($result);
+    // echo $_SESSION['kota'];
+    // echo $_GET['tanggal'];
 ?>
 <html>
     <head>
@@ -19,7 +19,9 @@
     </head>
     <body>
         <?php
-            
+            if(isset($start_session)) {
+                $start_session = session_start();
+            }
 
             $array_kota = array(
                 'Albury', 
@@ -115,12 +117,10 @@
             </h1>
         </div>
         <div>
-            <form action="historyCuaca?kota=$kota_history" method="GET">
+            <form action="#" method="GET">
                 <input type="date" class="tanggal" name="tanggal" value="<?php echo date('Y-m-d') ?>">
-            
-            
-                <input type="date" class="tanggal2">
-                <input type="date" class="tanggal3">
+                <input type="date" class="tanggal2" name="tanggal_from" value="<?php echo date('Y-m-d') ?>">
+                <input type="date" class="tanggal3" name="tanggal_to" value="<?php echo date('Y-m-d') ?>">
                 <button href="#" id="btnSearch" class="w3-btn">Search</button>
             </form>
         </div>
@@ -129,6 +129,12 @@
             if (isset($_GET['tanggal'])) {
                 $tanggalH = date('Y-m-d', strtotime($_GET['tanggal']));
             }
+            if (isset($_GET['tanggal_from'])) {
+                $tanggal_from = date('Y-m-d', strtotime($_GET['tanggal_from']));
+            }
+            if (isset($_GET['tanggal_to'])) {
+                $tanggal_to = date('Y-m-d', strtotime($_GET['tanggal_to']));
+            }
         ?>
         <div class="container_hist">
             <div id="formPredik" style="height: 540px">
@@ -136,55 +142,53 @@
                     <table style="margin-top: -20px">
                         <?php
                             if (isset($_GET['tanggal'])) {
-                                $command_history_temp = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryTemp.py $kota_history $tanggalH");
-                                // echo $command_history_temp;
-                                // $command_history_temp = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryTemp.py $kota_history");
-                                // $command_history_temp = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryTemp.py $tanggalH");
-                                $history_temp = shell_exec($command_history_temp);
+                                $command_history_temp_9am = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryTemp9am.py $kota_history $tanggalH");
+                                $history_temp_9am = shell_exec($command_history_temp_9am);
 
-                                $command_history_windSpeed = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryWindSpeed.py $kota_history");
-                                $history_windSpeed = shell_exec($command_history_windSpeed);
+                                $command_history_windSpeed_9am = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryWindSpeed9am.py $kota_history $tanggalH");
+                                $history_windSpeed_9am = shell_exec($command_history_windSpeed_9am);
                                 
-                                $command_history_humidity = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryHumidity.py $kota_history");
-                                $history_humidity = shell_exec($command_history_humidity);
+                                $command_history_humidity_9am = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryHumidity9am.py $kota_history $tanggalH");
+                                $history_humidity_9am = shell_exec($command_history_humidity_9am);
 
-                                $command_history_rainfall = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryRainfall.py $kota_history");
-                                $history_rainfall = shell_exec($command_history_rainfall);
+                                $command_history_rainfall_9am = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryRainfall9am.py $kota_history $tanggalH");
+                                $history_rainfall_9am = shell_exec($command_history_rainfall_9am);
 
-                                $command_history_pressure = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryPressure.py $kota_history");
-                                $history_pressure = shell_exec($command_history_pressure);
+                                $command_history_pressure_9am = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryPressure9am.py $kota_history $tanggalH");
+                                $history_pressure_9am = shell_exec($command_history_pressure_9am);
 
-                                $command_history_windDir = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryWindDir.py $kota_history");
-                                $history_windDir = shell_exec($command_history_windDir);
+                                $command_history_windDir_9am = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryWindDir9am.py $kota_history $tanggalH");
+                                $history_windDir_9am = shell_exec($command_history_windDir_9am);
                             }
                         ?>
                         <tr>
                             <td>
                                 Suhu :
                                 <?php 
-                                    if (isset($history_temp)) {
-                                        echo $history_temp; 
+                                    if (isset($history_temp_9am)) {
+                                        echo $history_temp_9am; 
                                     }
                                 ?>
-                                &deg;C
+                                &deg;
                             </td>
                         </tr>   
                         <tr>
                             <td>
                                 Kecepatan Angin :
                                 <?php 
-                                    if (isset($history_windSpeed)) {
-                                        echo $history_windSpeed; 
+                                    if (isset($history_windSpeed_9am)) {
+                                        echo $history_windSpeed_9am; 
                                     }
                                 ?>
+                                km/h
                             </td>
                         </tr> 
                         <tr>
                             <td>
                                 Kelembapan :
                                 <?php 
-                                    if (isset($history_humidity)) {
-                                        echo $history_humidity; 
+                                    if (isset($history_humidity_9am)) {
+                                        echo $history_humidity_9am; 
                                     }
                                 ?>
                             </td>
@@ -193,8 +197,8 @@
                             <td>
                                 Curah Hujan :
                                 <?php 
-                                    if (isset($history_rainfall)) {
-                                        echo $history_rainfall; 
+                                    if (isset($history_rainfall_9am)) {
+                                        echo $history_rainfall_9am; 
                                     }
                                 ?>
                             </td>
@@ -203,8 +207,8 @@
                             <td>
                                 Tekanan :
                                 <?php 
-                                    if (isset($history_pressure)) {
-                                        echo $history_pressure; 
+                                    if (isset($history_pressure_9am)) {
+                                        echo $history_pressure_9am; 
                                     }
                                 ?>
                             </td>
@@ -213,8 +217,8 @@
                             <td>
                                 Arah Angin : 
                                 <?php 
-                                    if (isset($history_windDir)) {
-                                        echo $history_windDir; 
+                                    if (isset($history_windDir_9am)) {
+                                        echo $history_windDir_9am; 
                                     }
                                 ?>
                             </td>
@@ -225,85 +229,138 @@
             <div id="formPredik" style="height: 540px">
                 <form action="" method="">
                     <table style="margin-top: -20px">
+                    <?php
+                            if (isset($_GET['tanggal'])) {
+                                $command_history_temp_3pm = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryTemp3pm.py $kota_history $tanggalH");
+                                $history_temp_3pm = shell_exec($command_history_temp_3pm);
+
+                                $command_history_windSpeed_3pm = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryWindSpeed3pm.py $kota_history $tanggalH");
+                                $history_windSpeed_3pm = shell_exec($command_history_windSpeed_3pm);
+                                
+                                $command_history_humidity_3pm = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryHumidity3pm.py $kota_history $tanggalH");
+                                $history_humidity_3pm = shell_exec($command_history_humidity_3pm);
+
+                                $command_history_rainfall_3pm = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryRainfall3pm.py $kota_history $tanggalH");
+                                $history_rainfall_3pm = shell_exec($command_history_rainfall_3pm);
+
+                                $command_history_pressure_3pm = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryPressure3pm.py $kota_history $tanggalH");
+                                $history_pressure_3pm = shell_exec($command_history_pressure_3pm);
+
+                                $command_history_windDir_3pm = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryWindDir3pm.py $kota_history $tanggalH");
+                                $history_windDir_3pm = shell_exec($command_history_windDir_3pm);
+                            }
+                        ?>
                         <tr>
                             <td>
-                                Suhu
+                                Suhu :
+                                <?php 
+                                    if (isset($history_temp_3pm)) {
+                                        echo $history_temp_3pm; 
+                                    }
+                                ?>
+                                &deg;
                             </td>
                         </tr>   
                         <tr>
                             <td>
-                                Kecepatan Angin
+                                Kecepatan Angin :
+                                <?php 
+                                    if (isset($history_windSpeed_3pm)) {
+                                        echo $history_windSpeed_3pm; 
+                                    }
+                                ?>
+                                km/h
                             </td>
                         </tr> 
                         <tr>
                             <td>
-                                Kelembapan
+                                Kelembapan :
+                                <?php 
+                                    if (isset($history_humidity_3pm)) {
+                                        echo $history_humidity_3pm; 
+                                    }
+                                ?>
                             </td>
                         </tr> 
                         <tr>
                             <td>
-                                Curah Hujan
+                                Curah Hujan :
+                                <?php 
+                                    if (isset($history_rainfall_3pm)) {
+                                        echo $history_rainfall_3pm; 
+                                    }
+                                ?>
                             </td>
                         </tr> 
                         <tr>
                             <td>
-                                Tekanan
+                                Tekanan :
+                                <?php 
+                                    if (isset($history_pressure_3pm)) {
+                                        echo $history_pressure_3pm; 
+                                    }
+                                ?>
                             </td>
                         </tr> 
                         <tr>
                             <td>
-                                Arah Angin
+                                Arah Angin : 
+                                <?php 
+                                    if (isset($history_windDir_3pm)) {
+                                        echo $history_windDir_3pm; 
+                                    }
+                                ?>
                             </td>
-                        </tr> 
+                        </tr>
                     </table>
                 </form>
             </div>
             <div id="grafik1" style="height: 540px">
                 <h2 style="text-align: center; margin: 25px 0px 15px 0px;">Grafik</h2>
                 <canvas id="myChart"></canvas>
+                <?php
+                    if (isset($_GET['tanggal_from'])) {
+                        if(isset($_GET['tanggal_to'])) {
+                            $command_history_temp = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryTemp9am.py $kota_history $tanggal_from $tanggal_to");
+                            $history_temp = shell_exec($command_history_temp);
+                            
+                            $command_history_humidity= escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryGraphHumidity.py $kota_history $tanggal_from $tanggal_to");
+                            $history_humidity = shell_exec($command_history_humidity);
+
+                            $command_history_rainfall = escapeshellcmd("python ..\\GeoData\\model\\WeatherHistoryRainfall9am.py $kota_history $tanggal_from $tanggal_to");
+                            $history_rainfall = shell_exec($command_history_rainfall);
+                        }
+                    }
+                ?>
                 <script>
                     var xValues = [100,200,300,400,500,600,700,800,900,1000];
-
                     new Chart("myChart", {
-                    type: "line",
-                    data: {
-                        labels: xValues,
-                        datasets: [{ 
-                        label: "curah hujan",
-                        // data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
-                        data: [50,50,50,50,1070,1110,1330,50,50,50],
-                        borderColor: "red",
-                        fill: false
-                        }, { 
-                        data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
-                        borderColor: "green",
-                        fill: false
-                        }, { 
-                        data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
-                        borderColor: "blue",
-                        fill: false
-                        }]
-                    },
-                    options: {
-                        legend: {display: true}
-                    }
+                        type: "line",
+                        data: {
+                            labels: xValues,
+                            datasets: [{ 
+                            label: "Rainfall",
+                            data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+                            borderColor: "red",
+                            fill: false
+                            }, { 
+                            label: "Temp",
+                            data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+                            borderColor: "green",
+                            fill: false
+                            }, { 
+                            label: "Humidity",
+                            data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+                            borderColor: "blue",
+                            fill: false
+                            }]
+                        },
+                        options: {
+                            legend: {display: true}
+                        }
                     }); 
                 </script>
-
-                <form action="" method="">
-                    <!-- <table>
-                        
-                    </table> -->
-                </form>
             </div>
-
-            <!-- <div id="grafik2">
-                <form action="" method="">
-                    <table>
-                        
-                    </table>
-                </form>
-            </div> -->
             <a href="GeoData_MainPage.html" id="btnHome" class="w3-btn" style="margin-top: 100px">Home</a>
         </div>
         <script>
