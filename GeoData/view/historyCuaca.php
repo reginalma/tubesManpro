@@ -119,8 +119,10 @@
         <div>
             <form action="#" method="GET">
                 <input type="date" class="tanggal" name="tanggal" value="<?php echo date('Y-m-d') ?>">
-                <input type="date" class="tanggal2" name="tanggal_from" value="<?php echo date('Y-m-d') ?>">
-                <input type="date" class="tanggal3" name="tanggal_to" value="<?php echo date('Y-m-d') ?>">
+                <!-- <input type="date" class="tanggal2" name="tanggal_from" value="<?php //echo date('Y-m-d') ?>">
+                <input type="date" class="tanggal3" name="tanggal_to" value="<?php // echo date('Y-m-d') ?>"> -->
+                <input type="date" class="tanggal2" name="tanggal_from">
+                <input type="date" class="tanggal3" name="tanggal_to">
                 <button href="#" id="btnSearch" class="w3-btn">Search</button>
             </form>
         </div>
@@ -340,17 +342,17 @@
                             labels: xValues,
                             datasets: [{ 
                             label: "Rainfall",
-                            data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+                            // data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
                             borderColor: "red",
                             fill: false
                             }, { 
                             label: "Temp",
-                            data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+                            // data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
                             borderColor: "green",
                             fill: false
                             }, { 
                             label: "Humidity",
-                            data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+                            // data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
                             borderColor: "blue",
                             fill: false
                             }]
